@@ -48,7 +48,7 @@ to:
             <version>2.4.0</version>
         </dependency>
 
-NOTE: That the example here relates to the 2.4.0 version of the patch. Use the version of the desired CEF node patch.
+**NOTE:** That the example here relates to the 2.4.0 version of the patch. Use the version of the desired CEF node patch.
 
 Once this is done, then the CEF node can be rebuild using the normal maven command for building the CEF node. Please refer to the CEF manual
 to determine the appropriate maven command used to build the CEF node for your particular environment.
