@@ -74,6 +74,8 @@ EIDAS_TRUSTED_CERTS_FILE | The location of a PEM file containing a list of PEM e
 EIDAS_TRUSTED_CERTS_CONSTRAINTS | A comma separated list of either full KeyStore path, or the ending path of a keystore path. If no constraint is defined, then the list of trusted certificates will always be amended with the PEM list. If the constraint is present, Then the trusted list will only be amended when the keyStorePath properties matches one of the specified constraints.
 MDSL_CONFIG_FOLDER | The absolute path to a folder where MDSL configuration data i placed.
 
+The use of PEM file and MDSL source is optional. If none of these environment variables are set, the eIDAS node will operate as a normal unpatched eIDAS node.
+
 The constraints limit the trust in external sources to only the key stores indicated by the constraints for both PEM certificates and MDSL certificates.
 
 The MDSL folder MUST contain a file named `mdsl.properties`. This property file contains the properties for zero or more MDSL sources. 
@@ -135,3 +137,8 @@ NJMJlIcoBoH1GO681m+09YjDySIuO7v9bR8CQQckHsuyqHVRsd8Uj6NPr9jGcnlrpkXk5jqInQAj
 4Q==
 -----END CERTIFICATE-----
 ```
+
+Note that the patch only impacts the set of certificates trusted by the eIDAS node. All configuration settings normally applied to an eIDAS node
+such as listing supported proxy services in eidas.xml must be provided as usual. All configuration data remains the same except for the fact that
+trusted metadata validation certificates are updated automatically.
+
