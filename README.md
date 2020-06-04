@@ -6,17 +6,17 @@ This repo provides the source code for addding the capability of CEF eiDAS nodes
 MetadataServiceList (MDSL) sources, providing signed and information about trusted metadata sources.
 
 ## Structure
-The present source code builds amends the functionality of the existing eidas-saml-engine module of an existing eIDAS CEF node.
+The present source code builds amends the functionality of the existing `eidas-saml-engine` module of an existing eIDAS CEF node.
 
-This is done by providing an altered version of the eu.eidas.auth.engine.configuration.dom.KeyStoreSignatureConfigurator class that
-replaces the original version of the class. This done using the maven shade plugin.
+This is done by providing an altered version of the eu.eidas.auth.engine.configuration.dom.KeyStoreSignatureConfigurator` class that
+replaces the original version of the class. This is achieved through the maven shade plugin.
 
-One project module exist for every version of the CEF code where the module md-trust-cef-240-path is the module to patch
+One project module exist for every version of the CEF code where the module `md-trust-cef-240-path is the module to patch
 the 2.4.0 version of the CEF eidas node.
 
 ## Build information
 To build this project it is first necessary to build the original CEF eIDAS node sources of the desired version.
-This is necessary to install the original eidas-saml-engine compiled jar in the local maven repository.
+This is necessary to install the .jar of the original `eidas-saml-engine` module in the local maven repository.
 
 To build all modules and versions of the patch simply build the maven project in the root directory:
 
