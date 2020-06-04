@@ -11,7 +11,7 @@ The present source code builds amends the functionality of the existing `eidas-s
 This is done by providing an altered version of the eu.eidas.auth.engine.configuration.dom.KeyStoreSignatureConfigurator` class that
 replaces the original version of the class. This is achieved through the maven shade plugin.
 
-One project module exist for every version of the CEF code where the module `md-trust-cef-240-path is the module to patch
+One project module exist for every version of the CEF code where the module `md-trust-cef-240-path` is the module to patch
 the 2.4.0 version of the CEF eidas node.
 
 ## Build information
