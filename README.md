@@ -5,6 +5,8 @@
 This repo provides the source code for addding the capability of CEF eiDAS nodes to import trusted metadata certificates from one or more 
 MetadataServiceList (MDSL) sources, providing signed and information about trusted metadata sources.
 
+The NOBID metadata project provides a metadata service that can be used to import trusted certificates here [https://md.eidas-trust.com](https://md.eidas-trust.com).
+
 In addition to this, the present patch also provides the capability to manually add trusted certificates in a separate external PEM file
 instead of providing these trusted certificates in the private key store of the CEF node.
 
