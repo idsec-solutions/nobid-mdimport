@@ -18,7 +18,7 @@ import com.google.common.collect.ImmutableSet;
 import eu.eidas.auth.engine.configuration.ProtocolEngineConfigurationException;
 import eu.eidas.auth.engine.core.impl.CertificateValidator;
 import org.apache.commons.lang.StringUtils;
-import se.idsec.eidas.cef.trustconfig.EidasTrustedPEMCertificates;
+import se.idsec.eidas.cef.trustconfig.EidasTrustedCertificates;
 
 import javax.annotation.Nullable;
 import java.security.KeyStore;
@@ -38,7 +38,7 @@ public final class KeyStoreSignatureConfigurator {
      * The location of the PEM file is determined by the environment variable "EIDAS_TRUSTED_CERTS_FILE".
      * This file can hold 1 or more trusted certificates.
      */
-    private static final EidasTrustedPEMCertificates trustedPemCerts = new EidasTrustedPEMCertificates();
+    private static final EidasTrustedCertificates trustedPemCerts = new EidasTrustedCertificates();
 
     private KeyStore.PrivateKeyEntry getPrivateSigningKeyAndCertificate(Map<String, String> properties,
                                                                         String propertyPrefix,
@@ -140,7 +140,7 @@ public final class KeyStoreSignatureConfigurator {
         ImmutableSet<X509Certificate> trustedCertificates = keyStoreContent.getCertificates();
 
         /*
-         * Customized addition by SE for injecting trusted PEM certificates
+         * Customized addition by SE for injecting trusted MDSL and PEM certificates
          */
         trustedCertificates = trustedPemCerts.addTrustedCertificates(trustedCertificates, properties);
 
