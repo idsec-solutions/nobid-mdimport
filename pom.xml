@@ -7,6 +7,8 @@
     <packaging>pom</packaging>
     <name>NOBID CEF MD Trust</name>
     <modules>
+        <module>md-trust-cef-145-patch</module>
+        <module>md-trust-cef-231-patch</module>
         <module>md-trust-cef-240-patch</module>
         <module>md-trust-core</module>
         <module>md-trust-xml</module>

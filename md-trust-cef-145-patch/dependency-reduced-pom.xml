@@ -3,8 +3,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.idsec.eidas.cef</groupId>
   <artifactId>eidas-saml-engine-mdsl</artifactId>
-  <name>eidas-saml-engine-mdsl 2.4.0</name>
-  <version>2.4.0</version>
+  <name>eidas-saml-engine-mdsl 1.4.5</name>
+  <version>1.4.5</version>
   <build>
     <plugins>
       <plugin>
@@ -54,6 +54,14 @@
       </plugin>
     </plugins>
   </build>
+  <dependencies>
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>jsr305</artifactId>
+      <version>3.0.2</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>

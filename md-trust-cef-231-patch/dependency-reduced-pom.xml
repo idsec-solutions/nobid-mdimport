@@ -3,8 +3,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.idsec.eidas.cef</groupId>
   <artifactId>eidas-saml-engine-mdsl</artifactId>
-  <name>eidas-saml-engine-mdsl 2.4.0</name>
-  <version>2.4.0</version>
+  <name>eidas-saml-engine-mdsl 2.3.1</name>
+  <version>2.3.1</version>
   <build>
     <plugins>
       <plugin>
