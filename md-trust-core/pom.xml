@@ -6,7 +6,7 @@
 
     <groupId>se.idsec.eidas.cef</groupId>
     <artifactId>md-tust-core</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>md-trust-core</name>
 
     <properties>
@@ -18,7 +18,7 @@
         <dependency>
             <groupId>se.idsec.eidas.cef</groupId>
             <artifactId>md-trust-xml</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.bouncycastle</groupId>

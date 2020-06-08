@@ -24,8 +24,6 @@ import org.apache.commons.lang.StringUtils;
 
 import eu.eidas.auth.engine.configuration.SamlEngineConfigurationException;
 import eu.eidas.auth.engine.core.impl.CertificateValidator;
-import org.apache.commons.lang.StringUtils;
-import se.elegnamnden.eidas.cef.trustconfig.EidasTrustedPEMCertificates;
 import se.idsec.eidas.cef.trustconfig.EidasTrustedCertificates;
 
 import javax.annotation.Nullable;
@@ -43,7 +41,7 @@ public final class KeyStoreSignatureConfigurator {
      * The location of the PEM file is determined by the environment variable "EIDAS_TRUSTED_CERTS_FILE".
      * This file can hold 1 or more trusted certificates.
      */
-    private static final EidasTrustedPEMCertificates trustedPemCerts = new EidasTrustedPEMCertificates();
+    private static final EidasTrustedCertificates externalTrustConfig = new EidasTrustedCertificates();
 
     private KeyStore.PrivateKeyEntry getPrivateSigningKeyAndCertificate(Map<String, String> properties,
                                                                         String propertyPrefix,
@@ -123,7 +121,7 @@ public final class KeyStoreSignatureConfigurator {
         /*
          * Customized addition by SE for injecting trusted MDSL and PEM certificates
          */
-        trustedCertificates = trustedPemCerts.addTrustedCertificates(trustedCertificates, properties);
+        trustedCertificates = externalTrustConfig.addTrustedCertificates(trustedCertificates, properties);
 
         String signatureAlgorithmWhiteListStr = SignatureKey.SIGNATURE_ALGORITHM_WHITE_LIST.getAsString(properties);
         String signatureAlgorithm = SignatureKey.SIGNATURE_ALGORITHM.getAsString(properties);
