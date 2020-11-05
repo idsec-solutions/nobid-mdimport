@@ -2,7 +2,7 @@
 
 # NOBID Metadata import
 
-This repo provides the source code for addding the capability of CEF eiDAS nodes to import trusted metadata certificates from one or more 
+This repo provides the source code for addding the capability of CEF eiDAS nodes to import trusted metadata certificates from one or more
 MetadataServiceList (MDSL) sources, providing signed and information about trusted metadata sources.
 
 The NOBID metadata project provides a metadata service that can be used to import trusted certificates here [https://md.eidas-trust.com](https://md.eidas-trust.com).
@@ -47,18 +47,41 @@ This is done by altering the following lines of code in the pom.xml file from:
         </dependency>
 
 
-to: 
+to:
 
         <dependency>
             <groupId>se.idsec.eidas.cef</groupId>
             <artifactId>eidas-saml-engine-mdsl</artifactId>
-            <version>2.4.0</version>
+            <version>${project.version}</version>
         </dependency>
-
-**NOTE:** That the example here relates to the 2.4.0 version of the patch. Use the version of the desired CEF node patch.
 
 Once this is done, then the CEF node can be rebuild using the normal maven command for building the CEF node. Please refer to the CEF manual
 to determine the appropriate maven command used to build the CEF node for your particular environment.
+
+### Additional instructions for version 2.5.0
+
+For some reason, the 2.5.0 version of the CEF node does not accept BouncyCastle dependencies from the imported updated eidas saml engine dependency. Bouncycastle bcpikix must therefore be added separately in the pom.xml file. For version 2.5.0 update pom.xml from:
+
+
+        <dependency>
+            <groupId>eu.eidas</groupId>
+            <artifactId>eidas-saml-engine</artifactId>
+        </dependency>
+
+
+to:
+
+        <dependency>
+            <groupId>se.idsec.eidas.cef</groupId>
+            <artifactId>eidas-saml-engine-mdsl</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+            <version>${bouncycastle.version}</version>
+        </dependency>
+
 
 ## Deploying the CEF node
 The provided patch adds two features to provide trusted certificates to the CEF node.
@@ -78,7 +101,7 @@ The use of PEM file and MDSL source is optional. If none of these environment va
 
 The constraints limit the trust in external sources to only the key stores indicated by the constraints for both PEM certificates and MDSL certificates.
 
-The MDSL folder MUST contain a file named `mdsl.properties`. This property file contains the properties for zero or more MDSL sources. 
+The MDSL folder MUST contain a file named `mdsl.properties`. This property file contains the properties for zero or more MDSL sources.
 Each property is prefixed mdsl.{index}.{property-name}, where the supported property names are:
 
 Property name | descripton
@@ -141,4 +164,3 @@ NJMJlIcoBoH1GO681m+09YjDySIuO7v9bR8CQQckHsuyqHVRsd8Uj6NPr9jGcnlrpkXk5jqInQAj
 Note that the patch only impacts the set of certificates trusted by the eIDAS node. All configuration settings normally applied to an eIDAS node
 such as listing supported proxy services in eidas.xml must be provided as usual. All configuration data remains the same except for the fact that
 trusted metadata validation certificates are updated automatically.
-
