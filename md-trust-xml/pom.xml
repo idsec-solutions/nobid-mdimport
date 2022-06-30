@@ -8,6 +8,11 @@
     <artifactId>md-trust-xml</artifactId>
     <version>1.0.0</version>
 
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.xmlbeans</groupId>
@@ -32,6 +37,7 @@
                 <inherited>true</inherited>
                 <configuration>
                     <schemaDirectory>src/main/xsd</schemaDirectory>
+                    <javaSource>1.8</javaSource>
                 </configuration>
             </plugin>
         </plugins>
